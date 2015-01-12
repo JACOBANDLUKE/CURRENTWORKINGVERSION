@@ -7,23 +7,37 @@ import javax.swing.JPanel;
 
 public class FraMain extends JFrame {
 
-    JPanel panMaster;
-    CardLayout cardLayout;
+    public JPanel panMaster;
+    public CardLayout cardLayout;
 
     public FraMain() throws IOException {
-
+        setLayout(new BorderLayout());
+        setTitle("Type Check");
+        setSize(600, 400);
+        setVisible(true);
+          setResizable(false);
+         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         PanResult panResult = new PanResult();
         PanText panText = new PanText();
         PanOut panout = new PanOut();
         PanTimer pantimer = new PanTimer(panout);
         PanScore panscore = new PanScore();
-        setLayout(new BorderLayout());
-        setTitle("Type Check");
-        setSize(600, 400);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        panMaster = new JPanel(new CardLayout());
+        
         add(panResult, BorderLayout.SOUTH);
         add(panText, BorderLayout.NORTH);
         add(panout, BorderLayout.EAST);
+        
+        panMaster.add(panscore);
+        getContentPane().add(panMaster);
+        setVisible(true); //Make JFrame visible
+        cardLayout = (CardLayout) panMaster.getLayout();
+        if (pantimer.nCount == 0) {
+            pantimer.timer.stop();
+           
+            cardLayout.next(panMaster);
         }
+
+    }
 }

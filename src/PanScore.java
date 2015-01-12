@@ -1,4 +1,5 @@
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,7 +22,8 @@ class PanScore extends JPanel {
         add(lblscore);
         add(lblretry);
         add(btnretry);
-        lblscore.setText("Your final score is" + PanResult.nCorrect);
+        btnretry.setText("Retry");
+        lblscore.setText("Your final score is " + PanResult.nCorrect);
         lblretry.setText("Do you want to play again");
+    } //To change body of generated methods, choose Tools | Templates.
     }
-}

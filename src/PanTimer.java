@@ -1,6 +1,4 @@
 
-import java.awt.CardLayout;
-import java.awt.PopupMenu;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +15,7 @@ import javax.swing.Timer;
 public class PanTimer extends JPanel {
 
     PanOut panOut;
-    private int nCount;
+    int nCount;
     Timer timer;
     
     public PanTimer(PanOut _panOut) {
@@ -34,7 +32,7 @@ public class PanTimer extends JPanel {
             panOut.UpdateLabel(nCount);
             if (nCount == 0){
                 timer.stop();
-                
+              
             }
         }
     };
